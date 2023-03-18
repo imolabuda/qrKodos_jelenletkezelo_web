@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import LoginForm from './components/LoginForm'
+import RegisterForm from './components/RegisterForm'
 
 function App() {
-  const [count, setCount] = useState(0)
   //state - allapot (count), ezt lehet valtoztatni a set fuggvennyel
 
   return (
     <div className="App">
-      
+      <LoginForm/>
     </div>
   )
 }
