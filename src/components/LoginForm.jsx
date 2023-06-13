@@ -75,6 +75,7 @@ function LoginForm(){
 
                 <Text fontSize={'15'}>
                     Ha még nincs felhasználód, regisztrálj!
+                    Bejelentkezett felhasználó: {user?.email}
                 </Text>
             </Stack>
         </Flex>
@@ -112,4 +113,4 @@ function LoginForm(){
     )
 }
 
-export default LoginForm //emiatt lehet egyszeruen importalni
+export default LoginForm; //emiatt lehet egyszeruen importalni

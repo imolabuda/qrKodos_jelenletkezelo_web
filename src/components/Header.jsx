@@ -7,7 +7,7 @@ import {Heading} from '@chakra-ui/react'
 const CTA = "Regisztráció"
 const CTA2 = "Bejelentkezés"
 
-function Header() {
+function Header({navigateToLoginForm, navigateToRegisterForm}) {
   return (
     <chakra.header id="header" bg="cyan.700">
       <Flex
@@ -28,10 +28,10 @@ function Header() {
         </HStack>
 
         <HStack>
-        <Button bg="pink.400">
+        <Button bg="pink.400" onClick={navigateToLoginForm}>
             {CTA2}
           </Button>
-          <Button bg="pink.100">
+          <Button bg="pink.100" onClick={navigateToRegisterForm}>
             {CTA}
           </Button>
         </HStack>
