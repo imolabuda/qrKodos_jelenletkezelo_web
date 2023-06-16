@@ -32,7 +32,6 @@ function App() {
 
       <Routes>
       
-
         <Route path="/" element={<Homepage navigateToQRCodeGenerator={navigateToQRCodeGenerator}/>}/>
         <Route path="/QRCodeGenerator" element={<QRCodeGenerator/>}/>
         {/* <Route path="/" element={<Homepage navigateToPath1={navigateToRegisterForm}/>}/> */}

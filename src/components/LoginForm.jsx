@@ -12,7 +12,8 @@ import { Input,
     FormLabel,
     FormErrorMessage,
     FormHelperText,
-    Text, } from '@chakra-ui/react';
+    Text,
+    Link, } from '@chakra-ui/react';
 import {ViewIcon, ViewOffIcon} from '@chakra-ui/icons';
 
 function LoginForm(){
@@ -39,7 +40,7 @@ function LoginForm(){
 
     return (
         <Flex align={"center"} justify={"center"} minH={"100vh"} bg={"cyan.100"}>
-            <Stack spacing={10} py={10} bg={"gray.50"} border={'200'} rounded={'xl'} boxShadow={'2xl'} p={'10'}>
+            <Stack spacing={3} py={10} bg={"gray.50"} border={'200'} rounded={'xl'} boxShadow={'2xl'} p={'10'}>
                 <Stack>
                     <Heading align={'center'} fontSize={'2xl'}>Bejelentkezés</Heading>
                 </Stack>
@@ -74,7 +75,7 @@ function LoginForm(){
                 </Stack>
 
                 <Text fontSize={'15'}>
-                    Ha még nincs felhasználód, regisztrálj!
+                    Ha még nincs felhasználód, <Link color="cyan.700" href='/RegisterForm'>regisztrálj!</Link>
                     Bejelentkezett felhasználó: {user?.email}
                 </Text>
             </Stack>
