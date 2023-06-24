@@ -5,8 +5,16 @@ import { Button,
         Stack,
         Heading,
        } from '@chakra-ui/react';
+import {Routes, Route, useNavigate} from 'react-router-dom';
 
-function Homepage({navigateToQRCodeGenerator}){
+function Homepage(){
+
+  const navigate = useNavigate();
+
+  const navigateToQRCodeGenerator = () => {
+    navigate('/QRCodeGenerator');
+  };
+
     return(
         <Flex align={"center"} justify={"center"} minH={"100vh"} bg={"cyan.100"}>
           <HStack as="nav" spacing="10">

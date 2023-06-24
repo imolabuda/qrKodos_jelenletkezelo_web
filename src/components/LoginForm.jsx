@@ -15,6 +15,7 @@ import { Input,
     Text,
     Link, } from '@chakra-ui/react';
 import {ViewIcon, ViewOffIcon} from '@chakra-ui/icons';
+import { Routes, Route, useNavigate, } from 'react-router-dom';
 
 function LoginForm(){
 
@@ -29,10 +30,17 @@ function LoginForm(){
         })
     }, [])
 
+    const navigate = useNavigate();
+
+    const navigateToHomepage = () => {
+        navigate('/Homepage');
+    }
+
     const login = async () => { //async - kulon fut es nem "fagy ki", lehet interaktalni a kinezettel
         try{
             const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword); //auth - firebase-configbol
             console.log(user);
+            navigateToHomepage();
         } catch (error) {
             console.log(error.message);
         }

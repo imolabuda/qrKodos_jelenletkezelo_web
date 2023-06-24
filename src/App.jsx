@@ -12,9 +12,9 @@ function App() {
 
   const navigate = useNavigate();
 
-  const navigateToQRCodeGenerator = () => {
-    navigate('/QRCodeGenerator');
-  };
+  // const navigateToQRCodeGenerator = () => {
+  //   navigate('/QRCodeGenerator');
+  // };
 
   const navigateToRegisterForm = () => {
     navigate('/RegisterForm');
@@ -32,12 +32,13 @@ function App() {
 
       <Routes>
       
-        <Route path="/" element={<Homepage navigateToQRCodeGenerator={navigateToQRCodeGenerator}/>}/>
+        <Route path="/" element={<Homepage/>}/>
         <Route path="/QRCodeGenerator" element={<QRCodeGenerator/>}/>
         {/* <Route path="/" element={<Homepage navigateToPath1={navigateToRegisterForm}/>}/> */}
         <Route path="/RegisterForm" element={<RegisterForm/>}/>
         {/* <Route path="/" element={<Homepage navigateToPath2={navigateToLoginForm}/>}/> */}
         <Route path="/LoginForm" element={<LoginForm/>}/>
+        <Route path="/Homepage" element={<Homepage/>}/>
       </Routes>
 
       {/* <RegisterForm/> */}
