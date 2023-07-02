@@ -10,8 +10,6 @@ import { useState, useEffect } from 'react';
 import { getFunctions, httpsCallable, } from "firebase/functions";
 
 function QRCodeGenerator(){
-    //const token = "3njlx894ujefx3uejo99wf89sjge";
-
     const [qrCode, setQrCode] = useState("");
     const auth = getAuth();
     const [checking, setChecking] = useState(false);
@@ -19,10 +17,8 @@ function QRCodeGenerator(){
     const [longitude, setLongitude] = useState(0);
     const [latitude, setLatitude] = useState(0);
 
-    //let showAlert = false;
     setTimeout(check, 1500);
-    //let changed = 0;
-      
+    
     function success(position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
@@ -30,17 +26,9 @@ function QRCodeGenerator(){
         setLatitude(latitude);
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
     }
-      
+    
     function error() {
         console.log("Unable to retrieve your location");
-    }
-
-    function check(){
-        if (checking == false){
-            setChecking(true);
-        }else{
-            setChecking(false);
-        }
     }
 
     useEffect(() => {
@@ -51,13 +39,20 @@ function QRCodeGenerator(){
         }
     }, []);
 
+    function check(){
+        if (checking == false){
+            setChecking(true);
+        }else{
+            setChecking(false);
+        }
+    }
+
     useEffect(() => {
         const fetchQrCode = async () => {
             try {
                 const user = auth.currentUser;
                 const functions = getFunctions();
                 const getNextQrCode = httpsCallable(functions, 'getNextQrCode');
-                // console.log(user.email);
 
                 await Promise.all([auth, user, functions, getNextQrCode]);
 
@@ -65,7 +60,6 @@ function QRCodeGenerator(){
                     .then((result) => {
                     setQrCode(result.data);
                     console.log(result.data);
-                    // console.log('setqrcode: ' + qrCode)
                 });
             } catch(error) {
                 showAlert = true;
