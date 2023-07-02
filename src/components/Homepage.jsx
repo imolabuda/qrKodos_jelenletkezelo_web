@@ -4,10 +4,11 @@ import { Button,
         Image,
         Stack,
         Heading,
+        Box,
        } from '@chakra-ui/react';
-import {Routes, Route, useNavigate} from 'react-router-dom';
+import {Routes, Route, useNavigate,} from 'react-router-dom';
 
-function Homepage(){
+function Homepage({isLoggedIn}){
 
   const navigate = useNavigate();
 
@@ -15,7 +16,7 @@ function Homepage(){
     navigate('/QRCodeGenerator');
   };
 
-    return(
+    return isLoggedIn ? (
         <Flex align={"center"} justify={"center"} minH={"100vh"} bg={"cyan.100"}>
           <HStack as="nav" spacing="10">
             <Button onClick={navigateToQRCodeGenerator} size='md' height='340px' width='320px' border='2px' bg="white">
@@ -33,7 +34,18 @@ function Homepage(){
             </Button>
           </HStack>
         </Flex>
-    )
+    ) : (  
+            <Box
+              bg={"#dcf3fb"}
+              align={"center"}
+              justify={"center"}
+              height="500px"
+              bgImage="url('../attendence.png')"
+              bgPosition="center"
+              bgRepeat="no-repeat"
+              bgSize="600px"
+            />
+       )
 }
 
 export default Homepage;

@@ -17,7 +17,7 @@ import { Input,
 import {ViewIcon, ViewOffIcon} from '@chakra-ui/icons';
 import { Routes, Route, useNavigate, } from 'react-router-dom';
 
-function LoginForm(){
+function LoginForm({setIsLoggedIn, isLoggedIn}){
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] =  useState("");
@@ -27,6 +27,7 @@ function LoginForm(){
     useEffect(() => { //ha valami valtozik az oldalon
         onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            setIsLoggedIn(!isLoggedIn);
         })
     }, [])
 
@@ -39,6 +40,7 @@ function LoginForm(){
     const login = async () => { //async - kulon fut es nem "fagy ki", lehet interaktalni a kinezettel
         try{
             const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword); //auth - firebase-configbol
+            setIsLoggedIn(true);
             console.log(user);
             navigateToHomepage();
         } catch (error) {
@@ -84,7 +86,6 @@ function LoginForm(){
 
                 <Text fontSize={'15'}>
                     Ha még nincs felhasználód, <Link color="cyan.700" href='/RegisterForm'>regisztrálj!</Link>
-                    Bejelentkezett felhasználó: {user?.email}
                 </Text>
             </Stack>
         </Flex>

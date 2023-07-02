@@ -132,18 +132,11 @@ function RegisterForm(){
                                 date = {new Date()}
                                 onChange = {handleSelect}
                                 className="calendarElement"
-                                style={{
-                                    position: "center",
-                                    //left: "50%",
-                                    //transform: "translateX(-50%)",
-                                    //top: "40px",
-                                    border: "1px solid",
-                                    //zIndex: "999",
+                                style={{ position: "center", border: "1px solid",
                                 }}
                                 >
                                 </Calendar>
                             }
-                            
                         </Flex>
                     </FormControl>
                     <FormControl>
@@ -178,32 +171,6 @@ function RegisterForm(){
                 </Text>
             </Stack>
         </Flex>
-
-    //     <div className="RegisterForm">
-    //     <h3>
-    //         Regisztráció
-    //     </h3>
-    //     <Input placeholder='E-mail cím..'
-    //             size = 'sm'
-    //             onChange={(event) => {
-    //                 setRegisterEmail(event.target.value);
-    //             }}/>
-    
-    //     <Input placeholder='Jelszó..'
-    //             size = 'sm'
-    //             onChange={(event) => {
-    //                 setRegisterPassword(event.target.value);
-    //             }}/>
-        
-    //     <button onClick={register}>
-    //         Regisztráció
-    //     </button>
-
-    //     {/* <h3>
-    //         Regisztrált felhasználó: {user?.email}
-    //     </h3> */}
-
-    // </div>
     )
 }
 
